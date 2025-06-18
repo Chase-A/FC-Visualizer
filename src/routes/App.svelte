@@ -3,6 +3,18 @@
 	let minTemp = -50;
 	let maxTemp = 134;
 
+	function getIndex() {
+		if (ftemp < -3) return 0;
+		if (ftemp < 15) return 1;
+		if (ftemp < 32) return 2;
+		if (ftemp < 50) return 3;
+		if (ftemp < 65) return 4;
+		if (ftemp < 72) return 5;
+		if (ftemp < 90) return 6;
+		if (ftemp < 110) return 7;
+		return 8;
+  	}
+
 	let descriptions = [
 		"A cold day on the summit of Mt. Everest, Nepal",
 		"So cold that it's recommended to stay inside",
@@ -14,6 +26,19 @@
 		"A heat wave, it's recommended to stay inside",
 		"A hot day in Death Valley, California, USA"
 	]
+
+	let alt_texts = [
+		"the peak of Mount Everest",
+		"a group of people bundled up in scarves and heavy jackets",
+		"skiers skiing down from a chairlift",
+		"people standing on a city sidewalk holding umbrellas in the rain",
+		"two soccer players chasing down a soccer ball",
+		"a well lit modern office",
+		"a wide angle shot of a beach on a clear summer day and the surrounding town",
+		"four people sheltering themselves from the sun with a large sheet",
+		"the valleys of Death Valley"
+	]
+
 	let images = [
 		"./everest.jpg",
 		"./cold.jpg",
@@ -25,44 +50,21 @@
 		"./hot.jpg",
 		"./death_valley.jpg"
 	]
+
 </script>
 
 <div class="body">
 	<div class="app-container">
-			{#if ftemp < -3} 
-				<img class="photo" src={images[0]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[0]}</p>
-			{:else if ftemp < 15}
-				<img class="photo" src={images[1]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[1]}</p>
-			{:else if ftemp < 32}
-				<img class="photo" src={images[2]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[2]}</p>
-			{:else if ftemp < 50}
-				<img class="photo" src={images[3]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[3]}</p>
-			{:else if ftemp < 65}
-				<img class="photo" src={images[4]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[4]}</p>
-			{:else if ftemp < 72}
-				<img class="photo" src={images[5]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[5]}</p>
-			{:else if ftemp < 90}
-				<img class="photo" src={images[6]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[6]}</p>
-			{:else if ftemp < 110}
-				<img class="photo" src={images[7]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[7]}</p>
-			{:else}
-				<img class="photo" src={images[8]} alt="place where it's that hot">
-				<p class="img-description">{descriptions[8]}</p>
-			{/if}
-	<div class="text-container">
-		<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
-		<p>{ftemp}<span class="degrees">&deg;F</span></p>
+		<img class="photo" src={images[getIndex()]} alt={alt_texts[getIndex()]}>
+		<div>
+			<p class="img-description">{descriptions[getIndex()]}</p>	
+			<div class="text-container">
+				<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
+				<p>{ftemp}<span class="degrees">&deg;F</span></p>
+			</div>
+			<input style="width: 100%; accent-color: #999" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
+		</div>
 	</div>
-	<input style="width: 100%; accent-color: #999" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
-</div>
 </div>
 
 <style>
@@ -112,11 +114,11 @@
 		margin: 20px auto;
 	}
 	@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 </style>
