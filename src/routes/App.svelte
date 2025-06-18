@@ -61,7 +61,7 @@
 		<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
 		<p>{ftemp}<span class="degrees">&deg;F</span></p>
 	</div>
-	<input class="temp-slider" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
+	<input style="width: 100%; accent-color: #999" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
 </div>
 </div>
 
