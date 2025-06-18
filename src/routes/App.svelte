@@ -56,7 +56,7 @@
 <div class="body">
 	<div class="app-container">
 		<img class="photo" src={images[getIndex()]} alt={alt_texts[getIndex()]}>
-		<div>
+		<div class="bottom-container">
 			<p class="img-description">{descriptions[getIndex()]}</p>	
 			<div class="text-container">
 				<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
@@ -102,7 +102,7 @@
 	}
 	.photo{
 		width: 100%;
-		max-width: 500px;
+		/* max-width: 500px; */
 		margin: 0 auto;
 		height: auto;
 		animation: fadeIn 100ms linear forwards;
@@ -119,6 +119,20 @@
 		}
 		100% {
 			opacity: 1;
+		}
+	}
+	@media(min-width: 800px){
+		.app-container {
+			display: flex;
+			flex-direction: row;
+		}
+		.bottom-container {
+			display: flex;
+			flex-direction: column;
+			place-content: center;
+		}
+		.photo {
+			width: 50%;
 		}
 	}
 </style>
