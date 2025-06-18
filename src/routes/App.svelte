@@ -5,13 +5,13 @@
 
 	let descriptions = [
 		"A cold day on the summit of Mt. Everest, Nepal",
-		"So cold that it's reccommended to stay inside",
+		"So cold that it's recommended to stay inside",
 		"Good conditions for skiing at your favorite mountain",
 		"A cold rainy day, best to stay inside",
 		"Cool and crisp, ideal weather for playing sports",
 		"An average office's room temperature setting",
 		"A warm day, perfect for enjoying the beach",
-		"A heat wave, it's reccomended to stay inside",
+		"A heat wave, it's recommended to stay inside",
 		"A hot day in Death Valley, California, USA"
 	]
 	let images = [
@@ -61,7 +61,7 @@
 		<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
 		<p>{ftemp}<span class="degrees">&deg;F</span></p>
 	</div>
-	<input type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
+	<input class="temp-slider" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
 </div>
 </div>
 
@@ -69,9 +69,9 @@
 	
 	@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
-	input {
+	.temp-slider {
 		width: 100%;
-		accent-color: #4FC1F1;
+		accent-color: #999;
 	}
 	.app-container{
 		font-family: "Reddit Mono", monospace;
