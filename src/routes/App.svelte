@@ -69,14 +69,12 @@
 	
 	@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
-	.temp-slider {
-		width: 100%;
-		accent-color: #999;
-	}
-	.app-container{
+
+	.app-container {
 		font-family: "Reddit Mono", monospace;
 	}
 	p {
+		font-family: "Reddit Mono", monospace;
 		font-size: 24px;
 	}
 	.text-container{
@@ -88,6 +86,7 @@
 
 	}
 	.text-container p {
+		font-family: "Reddit Mono", monospace;
 		font-size: 64px;
 		margin: 0;
 		margin-bottom: 30px;
