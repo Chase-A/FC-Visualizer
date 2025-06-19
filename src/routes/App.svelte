@@ -62,7 +62,7 @@
 				<p class="celcius">{Math.round((ftemp -32)* (5/9))}<span class="degrees">&deg;C</span></p>
 				<p>{ftemp}<span class="degrees">&deg;F</span></p>
 			</div>
-			<input style="width: 100%; accent-color: #999" type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
+			<input type="range" min={minTemp} max={maxTemp} bind:value={ftemp} />
 		</div>
 	</div>
 </div>
@@ -71,9 +71,22 @@
 	
 	@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
-
+	:global(html){
+		height: 100%;
+	}
+	:global(body){
+		margin: 0;
+		height: 100%;
+	}
 	.app-container {
 		font-family: "Reddit Mono", monospace;
+	}
+	.bottom-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		place-content: center;
+		justify-content: space-evenly;
 	}
 	p {
 		font-family: "Reddit Mono", monospace;
@@ -113,6 +126,10 @@
 		max-width: 400px;
 		margin: 20px auto;
 	}
+	input {
+		width: 90%;
+		accent-color: #999;
+	}
 	@keyframes fadeIn {
 		0% {
 			opacity: 0;
@@ -121,18 +138,48 @@
 			opacity: 1;
 		}
 	}
+
 	@media(min-width: 800px){
+		:global(body){
+			height: 100%;
+		}
+		.body {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+		}
 		.app-container {
 			display: flex;
 			flex-direction: row;
+			align-items: center;
+			max-width: 1280px;
 		}
-		.bottom-container {
-			display: flex;
-			flex-direction: column;
-			place-content: center;
-		}
+
 		.photo {
 			width: 50%;
+			margin: 0;
+		}
+		.bottom-container {
+			width: 50%;
+			justify-content: space-between;
+			height: 300px;
+		}
+		.text-container p {
+			margin-bottom: 0;
+		}
+		.img-description {
+			order: 2;
+			margin: 0;
+		}
+		.text-container {
+			order: 1
+		}
+		input {
+			order: 3;
+			width: 80%;
+			margin-top: 20px;
 		}
 	}
 </style>
