@@ -72,7 +72,7 @@
 	@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
 
 	:global(html){
-		height: 100%;
+		height: 100% !important;
 	}
 	:global(body){
 		margin: 0;
